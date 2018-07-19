@@ -1,5 +1,20 @@
 #Nmap Changelog ($Id$); -*-text-*-
 
+o Upgraded included libpcap to 1.8.1 [Daniel Miller]
+
+o [NSE] Script http-default-accounts was not able to run against more than one
+  target host/port. [nnposter]
+
+o [NSE][GH#1251] New script-arg `http.host` allows users to force a particular
+  value for the Host header in all HTTP requests.
+
+o [NSE][GH#1258] Use smtp.domain script arg or target's domain name instead of
+  "example.com" in EHLO command used for STARTTLS. [gwire]
+
+o [NSE][GH#1233] Fix brute.lua's BruteSocket wrapper, which was crashing Nmap
+  with an assertion failure due to socket mixup [Daniel Miller]:
+    nmap: nse_nsock.cc:672: int receive_buf(lua_State*, int, lua_KContext): Assertion `lua_gettop(L) == 7' failed.
+
 o [NSE][GH#1254] Handle an error condition in smb-vuln-ms17-010 caused by IPS
   closing the connection. [Clément Notin]
 
