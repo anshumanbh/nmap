@@ -2,10 +2,15 @@ FROM alpine:latest
 
 MAINTAINER Anshuman Bhartiya
 
-RUN apk update \
-    && apk add build-base \
-    && apk add linux-headers \
-    && rm -rf /var/cache/apk/*
+RUN apk add --update \
+    python \
+    python-dev \
+    py-pip \
+    build-base \
+    linux-headers \
+    libpcap-dev \
+&& apk add --no-cache openssl-dev \
+&& rm -rf /var/cache/apk/*
 
 RUN mkdir /nmap
 WORKDIR /nmap
